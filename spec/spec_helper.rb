@@ -6,6 +6,11 @@ require 'spec'
 require 'spec/autorun'
 require 'rack/test'
 
-Spec::Runner.configure do |config|
+require 'database_cleaner'
+DatabaseCleaner.strategy = :truncation
 
+Spec::Runner.configure do |config|
+  config.after(:suite) do
+    DatabaseCleaner.clean
+  end
 end

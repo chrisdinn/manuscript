@@ -1,14 +1,14 @@
-require File.expand_path(File.dirname(__FILE__) + '/spec_helper')
+require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
-describe "Manuscript" do
+describe Manuscript::Base do
   include Rack::Test::Methods    
   
   def app
-    Manuscript
+    Manuscript::Base
   end
   
   before do
-    @page = Page.create!(:name => "sample", :contents => "Here are some **Sample issue contents**." ) 
+    @page = Manuscript::Page.create!(:name => "sample", :contents => "Here are some **Sample issue contents**." ) 
   end
 
   it "should display rendered pages" do

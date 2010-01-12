@@ -1,9 +1,9 @@
 %p
-	%a{ :href => "/edit" } <- /edit
+	%a{ :href => "/admin/pages" } <- /edit
 %h1 Pages
 %ol
 	- @pages.each do |page|
 		%li
-			%a{:href => "/pages/#{page.id}/edit"}
+			%a{:href => "/admin/pages/#{page.id}/edit"}
 				= page.name
-%a{ :href => "/pages/new" } New page
+%a{ :href => "/admin/pages/new" } New page

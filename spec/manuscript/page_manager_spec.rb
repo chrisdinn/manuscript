@@ -1,15 +1,15 @@
-require 'spec_helper'
+require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
 describe "PageManager" do
   include Rack::Test::Methods    
   
   def app
-    PageManager 
+    Manuscript::PageManager 
   end
   
   describe "when there are two pages" do
     before do
-      @pages = Page.create([{:name => "index", :contents => "Page 1"}, {:name => "contact", :contents => "Page 2"}])
+      @pages = Manuscript::Page.create([{:name => "index", :contents => "Page 1"}, {:name => "contact", :contents => "Page 2"}])
     end
   
     it "should display list with both pages" do
@@ -32,7 +32,7 @@ describe "PageManager" do
     end
     
     it "should allow pages to be edited" do
-      page = Page.first
+      page = Manuscript::Page.first
       get "/admin/pages/#{page.id}/edit"
       last_response.should be_ok
       last_response.body.should include(page.contents)
