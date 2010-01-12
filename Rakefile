@@ -1,3 +1,4 @@
+$LOAD_PATH.unshift(File.join(File.dirname(__FILE__), 'lib'))
 require 'rubygems'
 require 'rake'
 
@@ -5,11 +6,11 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "manuscript"
-    gem.summary = %Q{TODO: one-line summary of your gem}
-    gem.description = %Q{TODO: longer description of your gem}
-    gem.email = "chrisgdinn@gmail.com"
-    gem.homepage = "http://github.com/chrisdinn/manuscript"
-    gem.authors = ["chrisdinn"]
+    gem.summary = "A gem for publishing a small Hot Ink authenticated site"
+    gem.description = "A gem for publishing a small Hot Ink authenticated site"
+    gem.email = "chris@hotink.net"
+    gem.homepage = "http://github.com/hotink/manuscript"
+    gem.authors = ["hotink"]
     gem.add_development_dependency "rspec", ">= 1.2.9"
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
@@ -42,4 +43,18 @@ Rake::RDocTask.new do |rdoc|
   rdoc.title = "manuscript #{version}"
   rdoc.rdoc_files.include('README*')
   rdoc.rdoc_files.include('lib/**/*.rb')
+end
+
+namespace :db do
+  desc "Migrate the database"
+    task(:migrate => :environment) do
+    ActiveRecord::Base.logger = Logger.new(STDOUT)
+    ActiveRecord::Migration.verbose = true
+    ActiveRecord::Migrator.migrate("db/migrate")
+  end
+end
+
+task :environment do
+  require 'manuscript'
+  ActiveRecord::Base.establish_connection :adapter => 'sqlite3', :database =>  'manuscript.sqlite3.db'
 end
