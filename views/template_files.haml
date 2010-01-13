@@ -1,0 +1,8 @@
+%p
+	%a{ :href => "/admin/pages" } <- /pages
+%h1 Template files
+%ol
+	- @files.each do |file|
+		%li
+			= file.file_file_name
+%a{ :href => "/admin/template_files/new" } Upload a file

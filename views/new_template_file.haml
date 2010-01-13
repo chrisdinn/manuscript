@@ -1,0 +1,9 @@
+%p
+	%a{ :href => "/admin/template_files" }> &laquo; back
+
+%form{:method =>:post, :action => "/admin/template_files"}
+	%label 
+		Upload template file
+		%input{:type => 'file', :name => 'template_file[file]'}
+	%input{ :type => :submit }
+	%input{:type => 'hidden', :name => 'template_file[hideme]', :value => 'here I am'}

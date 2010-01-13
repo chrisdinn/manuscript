@@ -13,7 +13,7 @@ DatabaseCleaner.strategy = :truncation
 Spec::Runner.configure do |config|
   config.include(Shoulda::ActiveRecord::Matchers)
   
-  config.after(:suite) do
+  config.after(:each) do
     DatabaseCleaner.clean
   end
 end

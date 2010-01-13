@@ -9,6 +9,17 @@
 		%label 
 			Name
 			%input{:type => :text, :name => "page[name]", :value => "#{@page.name}"}
+		%label
+			Template
+			%select{:name => "page[template_id]"}
+				%option{:value=>""} None
+				- @templates.each do |template|
+					- if template==@page.template
+						%option{:value => "#{template.id}", :selected => "selected"}
+							= template.name
+					- else
+						%option{:value => "#{template.id}"}
+							= template.name
 		%label 
 			Content
 			%textarea{:name => "page[contents]"}

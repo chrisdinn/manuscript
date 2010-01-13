@@ -1,0 +1,17 @@
+%p
+	%a{ :href => "/admin/pages" } &laquo back
+%h1 Templates
+%ol
+	- @templates.each do |template|
+		%li
+			%a{:href => "/admin/templates/#{template.id}/edit"}
+				= template.name
+%a{ :href => "/admin/templates/new" } New template
+
+%h1 Layouts
+%ol
+	- @layouts.each do |template|
+		%li
+			%a{:href => "/admin/templates/#{template.id}/edit"}
+				= template.name
+%a{ :href => "/admin/layouts/new" } New layout

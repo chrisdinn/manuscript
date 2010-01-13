@@ -9,19 +9,18 @@ module Manuscript
     end
   
     get "/admin/pages/new" do
-      #@templates = Template.all
+      @templates = Manuscript::PageTemplate.all
       @page = Page.new
       haml :page
     end
   
     post "/admin/pages/?" do
-      #@templates = Template.all
       @page = Page.create!(params[:page])
       redirect "/admin/pages/#{@page.id}/edit"
     end
   
     get "/admin/pages/:id/edit" do
-      #@templates = Template.all
+      @templates = Manuscript::PageTemplate.all
       @page = Page.find_by_id params[:id]
       halt 404, "Page not found" unless @page
       haml :page
