@@ -4,7 +4,7 @@ describe "PageManager" do
   include Rack::Test::Methods    
   
   def app
-    Manuscript::PageManager 
+    Manuscript::PageManager
   end
   
   describe "when there are two pages" do
@@ -13,7 +13,8 @@ describe "PageManager" do
     end
   
     it "should display list with both pages" do
-      get "/admin/pages"
+      request "/admin/pages"
+      
       last_response.should be_ok
       last_response.body.should include("index")
       last_response.body.should include("contact")
