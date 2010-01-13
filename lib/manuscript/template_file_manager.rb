@@ -12,11 +12,14 @@ module Manuscript
     end
     
     post '/admin/template_files' do
-      #@file = TemplateFile.new
-      #@file.file = params[:template_file][:file]
-      #@file.save
-      params.inspect
-      #redirect '/admin/template_files'
+      @file = TemplateFile.new
+      @file.attributes = params[:template_file]
+      @file.save
+      @file.errors.each do |e|
+        puts e
+      end
+      puts params.inspect
+      redirect '/admin/template_files'
     end
   end
 end
