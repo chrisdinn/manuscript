@@ -30,4 +30,8 @@ require 'manuscript/template_file_manager'
 
 ActiveRecord::Base.logger = Logger.new(STDERR)
 
-set :views, File.dirname(__FILE__) + "/../../views"
+module Sinatra
+  class Base
+    set :views, File.dirname(__FILE__) + "/../../views"
+  end
+end
