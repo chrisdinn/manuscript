@@ -13,7 +13,7 @@ Getting a database in shape for Manuscript to use production is a little complic
 
   gem install manuscript --source http://gemcutter.org
 
-Then, clone this repository (this is only used to configure the database):
+Then, clone this repository (this is only used to configure the database) wherever you want to <b>deploy</b> your Manuscript:
 
   git clone git://github.com/chrisdinn/manuscript.git
 
@@ -30,6 +30,35 @@ Then, in the project's directory:
   rake db:migrate
 
 Now you've got a ready-for-production database.
+
+== Setting up your Manuscript
+
+In the repository directory, edit the file called <tt>config.ru</tt> to match your desired set up:
+
+  require 'rubygems'
+  require 'manuscript'
+
+  ActiveRecord::Base.establish_connection :adapter => 'sqlite3', :database =>  'manuscript.sqlite3.db'
+
+  use Rack::Session::Cookie
+  use Gatekeeper::Middleware do |sso|
+    sso.sso_url = "http://hotink.theorem.ca/sso"
+  end
+  use Manuscript::Keymaster, :hotink_account_id => 1
+  use Manuscript::PageManager
+  use Manuscript::TemplateManager
+  use Manuscript::TemplateFileManager
+  run Manuscript::Base.new
+
+Manuscript::Keymaster works with the Gatekeeper gem to handle authentication with a Hot Ink SSO server. If your Hot Ink installation is located somewhere
+else, be sure you set its address in the Gatekeeper::Middleware config block shown above. Set the Manuscript::Keymaster config option :hotink_account_id
+to the id number of the Hot Ink account that owns this Manuscript.
+
+You can then deploy this like any other Rack app. You can even test it out:
+
+  rackup config.ru
+
+To start settings things up, visit "/admin" from your application's host and port.
 
 == Note on Patches/Pull Requests
  
