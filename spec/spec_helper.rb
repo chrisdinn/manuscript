@@ -1,6 +1,9 @@
 $LOAD_PATH.unshift(File.dirname(__FILE__))
 $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
 
+require 'active_record'
+ActiveRecord::Base.establish_connection :adapter => 'sqlite3', :database =>  'manuscript_test.sqlite3.db'
+
 require 'manuscript'
 require 'spec'
 require 'spec/autorun'

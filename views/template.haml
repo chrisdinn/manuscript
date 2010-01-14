@@ -1,6 +1,5 @@
 %p
-	%a{ :href => "/admin/pages" }> /pages
-	%a{ :href => "/admin/templates" } /templates
+	%a{ :href => "/admin/templates" } &laquo back
 	
 - if @template.layout?
 	%h1 Layout
@@ -12,6 +11,7 @@
 		%input{ :type => :hidden, :name => "_method", :value => :put }
 	%fieldset
 		%legend Edit template
+		%input{ :type => :submit }
 		%label 
 			Name
 			%input{:type => :text, :name => "template[name]", :value => "#{@template.name}"}
@@ -29,6 +29,4 @@
 								= layout.name
 		%label 
 			Code
-			%textarea{:name => "template[code]"}
-				= @template.code
-	%input{ :type => :submit }
+		%textarea{:name => "template[code]"}= @template.code

@@ -7,6 +7,8 @@ gem 'gatekeeper'
 gem 'liquid'
 gem 'paperclip'
 
+require 'rack/static'
+
 require 'gatekeeper'
 require 'gatekeeper/helpers/authentication'
 
@@ -27,4 +29,3 @@ require 'manuscript/template_file'
 require 'manuscript/template_file_manager'
 
 ActiveRecord::Base.logger = Logger.new(STDERR)
-ActiveRecord::Base.establish_connection :adapter => 'sqlite3', :database =>  'manuscript.sqlite3.db'

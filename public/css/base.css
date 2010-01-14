@@ -1,0 +1,10 @@
+body { font-size: 16px; line-height: 1.1em; font-family: "Helvetica Neue", verdana, tahoma, arial, sans-serif; }
+div#page_container { width: 960px; }
+
+ol.menu { list-style: none; padding-left: 0; }
+ol.menu li { display: inline; margin: 0 10px; }
+
+form label { display:block; padding: 10px 0; }
+form input[type="text"] { font-size: 18px; width: 600px;}
+form textarea { font-family: "andale mono", courier, tahoma, mono; font-size: 15px; width: 940px; height: 500px; }
+form input[type="submit"] { float: right; }

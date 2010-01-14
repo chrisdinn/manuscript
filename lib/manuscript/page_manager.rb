@@ -3,6 +3,10 @@ module Manuscript
   class PageManager < Sinatra::Base
     enable :methodoverride
     
+    get "/admin/?" do
+      redirect "/admin/pages"
+    end
+    
     get "/admin/pages/?" do
       @pages = Page.all
       haml :pages

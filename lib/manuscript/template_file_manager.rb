@@ -1,3 +1,4 @@
+
 module Manuscript
   class TemplateFileManager < Sinatra::Base
     enable :methodoverride
@@ -12,14 +13,19 @@ module Manuscript
     end
     
     post '/admin/template_files' do
+      new_file = params[:template_file][:file][:tempfile]
+      new_file.original_filename = params[:template_file][:file][:filename]
+      
       @file = TemplateFile.new
-      @file.attributes = params[:template_file]
+      @file.file = new_file
       @file.save
-      @file.errors.each do |e|
-        puts e
-      end
+      puts @file.inspect
       puts params.inspect
       redirect '/admin/template_files'
     end
   end
+end
+
+class Tempfile
+  attr_accessor :original_filename
 end
