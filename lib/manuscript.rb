@@ -32,6 +32,6 @@ ActiveRecord::Base.logger = Logger.new(STDERR)
 
 module Sinatra
   class Base
-    set :views, File.dirname(__FILE__) + "/../../views"
+    set :views, File.dirname(__FILE__) + "/../views"
   end
 end
