@@ -5,5 +5,11 @@ module Manuscript
       raise Sinatra::NotFound unless @page
       @page.to_html
     end
+    
+    get "/" do
+      @page = Page.find_by_name('index')
+      raise Sinatra::NotFound unless @page
+      @page.to_html
+    end
   end
 end
