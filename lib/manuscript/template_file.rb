@@ -5,7 +5,7 @@ module Manuscript
     validates_presence_of :file_file_name
     
     has_attached_file :file,
-        :path => "./public/template_files/:id_partition/:basename.:extension",
+        :path => "./template_files/:id_partition/:basename.:extension",
         :url => "/template_files/:id_partition/:basename.:extension"
   end
 end
