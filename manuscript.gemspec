@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["hotink"]
-  s.date = %q{2010-01-13}
+  s.date = %q{2010-01-14}
   s.description = %q{A gem for publishing a small Hot Ink authenticated site}
   s.email = %q{chris@hotink.net}
   s.extra_rdoc_files = [
@@ -42,11 +42,6 @@ Gem::Specification.new do |s|
      "lib/manuscript/template_manager.rb",
      "manuscript.gemspec",
      "public/css/base.css",
-     "public/template_files/000/000/001/RackMultipart20100113-62534-1r8ld4k-0.",
-     "public/template_files/000/000/002/RackMultipart20100113-62565-1r8ld4k-0.",
-     "public/template_files/000/000/003/RackMultipart20100113-62784-1r8ld4k-0.",
-     "public/template_files/000/000/004/test.png",
-     "public/template_files/000/000/005/feed-pink.png",
      "spec/manuscript/base_spec.rb",
      "spec/manuscript/layout_template_spec.rb",
      "spec/manuscript/page_manager_spec.rb",
