@@ -41,6 +41,7 @@ In the repository directory, edit the file called <tt>config.ru</tt> to match yo
   ActiveRecord::Base.establish_connection :adapter => 'sqlite3', :database =>  'manuscript.sqlite3.db'
 
   use Rack::Session::Cookie
+  use Rack::Static, :urls => ["/template_files"]
   use Gatekeeper::Middleware do |sso|
     sso.sso_url = "http://hotink.theorem.ca/sso"
   end
@@ -59,6 +60,16 @@ You can then deploy this like any other Rack app. You can even test it out:
   rackup config.ru
 
 To start settings things up, visit "/admin" from your application's host and port.
+
+=== A cleaner setup
+
+While you can deploy a Manuscript as indicated above, if you don't want to clone a repository onto your production machine you have another option. Simply
+prepare an sqlite3 database on you local machine, in a cloned Manuscript repository. 
+
+Make sure the <b>gem is installed</b> on your production machine, then create a new directory and create a <tt>rackup.ru</tt> file and make it read as
+shown above. 
+
+Template files will be saved into a directory '/template_files' alongside <tt>config.ru</tt>. They'll also be served from there. Now deploy away.
 
 == Note on Patches/Pull Requests
  
