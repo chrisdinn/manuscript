@@ -40,6 +40,7 @@ Gem::Specification.new do |s|
      "lib/manuscript/template_file.rb",
      "lib/manuscript/template_file_manager.rb",
      "lib/manuscript/template_manager.rb",
+     "manuscript.gemspec",
      "public/css/base.css",
      "public/template_files/000/000/001/RackMultipart20100113-62534-1r8ld4k-0.",
      "public/template_files/000/000/002/RackMultipart20100113-62565-1r8ld4k-0.",
@@ -87,11 +88,32 @@ Gem::Specification.new do |s|
     s.specification_version = 3
 
     if Gem::Version.new(Gem::RubyGemsVersion) >= Gem::Version.new('1.2.0') then
+      s.add_runtime_dependency(%q<activerecord>, [">= 2.3.5"])
+      s.add_runtime_dependency(%q<rdiscount>, [">= 1.3.5"])
+      s.add_runtime_dependency(%q<sinatra>, [">= 0.9.4"])
+      s.add_runtime_dependency(%q<haml>, [">= 2.2.12"])
+      s.add_runtime_dependency(%q<gatekeeper>, [">= 0.1.1"])
+      s.add_runtime_dependency(%q<liquid>, [">= 2.0.0"])
+      s.add_runtime_dependency(%q<paperclip>, [">= 2.3.1.1"])
       s.add_development_dependency(%q<rspec>, [">= 1.2.9"])
     else
+      s.add_dependency(%q<activerecord>, [">= 2.3.5"])
+      s.add_dependency(%q<rdiscount>, [">= 1.3.5"])
+      s.add_dependency(%q<sinatra>, [">= 0.9.4"])
+      s.add_dependency(%q<haml>, [">= 2.2.12"])
+      s.add_dependency(%q<gatekeeper>, [">= 0.1.1"])
+      s.add_dependency(%q<liquid>, [">= 2.0.0"])
+      s.add_dependency(%q<paperclip>, [">= 2.3.1.1"])
       s.add_dependency(%q<rspec>, [">= 1.2.9"])
     end
   else
+    s.add_dependency(%q<activerecord>, [">= 2.3.5"])
+    s.add_dependency(%q<rdiscount>, [">= 1.3.5"])
+    s.add_dependency(%q<sinatra>, [">= 0.9.4"])
+    s.add_dependency(%q<haml>, [">= 2.2.12"])
+    s.add_dependency(%q<gatekeeper>, [">= 0.1.1"])
+    s.add_dependency(%q<liquid>, [">= 2.0.0"])
+    s.add_dependency(%q<paperclip>, [">= 2.3.1.1"])
     s.add_dependency(%q<rspec>, [">= 1.2.9"])
   end
 end

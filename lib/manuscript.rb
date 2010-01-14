@@ -1,12 +1,3 @@
-require 'rubygems'
-gem 'activerecord'
-gem 'rdiscount'
-gem 'sinatra'
-gem 'haml'
-gem 'gatekeeper'
-gem 'liquid'
-gem 'paperclip'
-
 require 'rack/static'
 
 require 'gatekeeper'

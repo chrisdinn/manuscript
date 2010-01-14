@@ -11,6 +11,13 @@ begin
     gem.email = "chris@hotink.net"
     gem.homepage = "http://github.com/hotink/manuscript"
     gem.authors = ["hotink"]
+    gem.add_dependency 'activerecord', '>= 2.3.5'
+    gem.add_dependency 'rdiscount', '>= 1.3.5'
+    gem.add_dependency 'sinatra', '>= 0.9.4'
+    gem.add_dependency 'haml', '>= 2.2.12'
+    gem.add_dependency 'gatekeeper', '>= 0.1.1'
+    gem.add_dependency 'liquid', '>= 2.0.0'
+    gem.add_dependency 'paperclip', '>= 2.3.1.1'
     gem.add_development_dependency "rspec", ">= 1.2.9"
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
