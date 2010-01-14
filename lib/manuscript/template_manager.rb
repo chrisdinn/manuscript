@@ -1,7 +1,7 @@
 module Manuscript
   class TemplateManager < Sinatra::Base
     enable :methodoverride
-       
+    
     get "/admin/templates/?" do
       @templates = PageTemplate.all
       @layouts = LayoutTemplate.all
