@@ -7,7 +7,7 @@ Manuscript is meant to handle very simple static content websites. For example: 
 upload template files (like images and css), to write templates (to hold the code), and write page text in Markdown (to make page maintenance
 easy).
 
-== Roll your own database
+=== Roll your own database
 
 Getting a database in shape for Manuscript to use production is a little complicated at the moment, but it's manageable. To start off, install the gem:
 
@@ -31,7 +31,7 @@ Then, in the project's directory:
 
 Now you've got a ready-for-production database.
 
-== Setting up your Manuscript
+=== Setting up your Manuscript
 
 In the repository directory, edit the file called <tt>config.ru</tt> to match your desired set up:
 
