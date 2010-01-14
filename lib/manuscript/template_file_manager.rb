@@ -26,6 +26,7 @@ module Manuscript
   end
 end
 
+# Paperclip expects a Rails-specific ActionController::UploadedFile, so fake it with Tempfile hack
 class Tempfile
   attr_accessor :original_filename
 end
