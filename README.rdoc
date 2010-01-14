@@ -71,6 +71,11 @@ shown above.
 
 Template files will be saved into a directory '/template_files' alongside <tt>config.ru</tt>. They'll also be served from there. Now deploy away.
 
+== Development plans
+
+Expect to see editable stylesheet and javascript template files, as well as special processing for images. Page caching is also a priority. If you have others 
+you'd like to see, please file an issue.
+
 == Note on Patches/Pull Requests
  
 * Fork the project.
