@@ -33,6 +33,7 @@ ActiveRecord::Base.logger = Logger.new(STDERR)
 module Sinatra
   class Base
     set :views, File.dirname(__FILE__) + "/../views"
+    set :static, true
     set :public, File.dirname(__FILE__) + "/../public"
   end
 end
