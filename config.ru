@@ -9,7 +9,7 @@ use Rack::Static, :urls => "/css", :root => "public"
 use Gatekeeper::Middleware do |sso|
   sso.sso_url = "http://hotink.theorem.ca/sso"
 end
-use Manuscript::Keymaster
+use Manuscript::Keymaster, :hotink_account_id => 1
 use Manuscript::PageManager
 use Manuscript::TemplateManager
 use Manuscript::TemplateFileManager

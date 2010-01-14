@@ -1,6 +1,35 @@
-= manuscript
+= Manuscript
 
-Description goes here.
+<b>Manuscript</b> is a wildly simple website publishing system built on Rack using Sinatra (http://github.com/sinatra/sinatra). It's intended
+for use with Hot Ink (http://github.com/hotink/hotink), but as you'll see when we talk about set-up, you can roll it anyway you'd like.
+
+Manuscript is meant to handle very simple static content websites. For example: http://cup.ca. The very simple admin interface allows users to
+upload template files (like images and css), to write templates (to hold the code), and write page text in Markdown (to make page maintenance
+easy).
+
+== Roll your own database
+
+Getting a database in shape for Manuscript to use production is a little complicated at the moment, but it's manageable. To start off, install the gem:
+
+  gem install manuscript --source http://gemcutter.org
+
+Then, clone this repository (this is only used to configure the database):
+
+  git clone git://github.com/chrisdinn/manuscript.git
+
+Edit the ActiveRecord configuration settings in <tt>Rakefile</tt>, at the bottom in the <tt>:environment</tt> task. You can name your database
+whatever you want. Like so: 
+
+  task :environment do
+    require 'manuscript'
+    ActiveRecord::Base.establish_connection :adapter => 'sqlite3', :database =>  'manuscript.sqlite3.db' 
+  end 
+ 
+Then, in the project's directory:
+
+  rake db:migrate
+
+Now you've got a ready-for-production database.
 
 == Note on Patches/Pull Requests
  
@@ -14,4 +43,4 @@ Description goes here.
 
 == Copyright
 
-Copyright (c) 2010 chrisdinn. See LICENSE for details.
+Copyright (c) 2010 Chris Dinn. See LICENSE for details.
