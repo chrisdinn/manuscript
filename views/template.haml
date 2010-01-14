@@ -29,4 +29,4 @@
 								= layout.name
 		%label 
 			Code
-		%textarea{:name => "template[code]"}= @template.code
+		%textarea{:name => "template[code]"}= escape_html(@template.code)
