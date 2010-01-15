@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{manuscript}
-  s.version = "0.1.5"
+  s.version = "0.1.6"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["hotink"]
@@ -52,6 +52,7 @@ Gem::Specification.new do |s|
      "spec/manuscript/template_manager_spec.rb",
      "spec/spec.opts",
      "spec/spec_helper.rb",
+     "views/edit_template_file.haml",
      "views/layout.haml",
      "views/menu.haml",
      "views/new_template_file.haml",
