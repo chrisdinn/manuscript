@@ -7,5 +7,9 @@ module Manuscript
     has_attached_file :file,
         :path => "./template_files/:id/:basename.:extension",
         :url => "/template_files/:id/:basename.:extension"
+
+    def url
+      file.url
+    end
   end
 end

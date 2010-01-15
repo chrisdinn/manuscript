@@ -1,0 +1,9 @@
+%p
+	%a{ :href => "/admin/template_files" } &laquo back
+%form{:method =>:post, :action => "/admin/template_files/#{@file.id}", :enctype => "multipart/form-data"}
+	%fieldset
+		%legend 
+			= "Replace file: #{@file.url}"
+		%input{:type => 'file', :name => 'template_file[file]', :id => 'template_file_file'}
+		%input{:type => 'hidden', :name => '_method', :value => 'put'}
+		%input{ :type => :submit, :value => "Upload" }

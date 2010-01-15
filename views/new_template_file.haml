@@ -1,7 +1,7 @@
 %p
 	%a{ :href => "/admin/template_files" } &laquo back
 %form{:method =>:post, :action => "/admin/template_files", :enctype => "multipart/form-data"}
-	%label 
-		Upload template file
+	%fieldset
+		%legend  Upload template file
 		%input{:type => 'file', :name => 'template_file[file]', :id => 'template_file_file'}
-	%input{ :type => :submit }
+		%input{ :type => :submit, :value => "Upload" }

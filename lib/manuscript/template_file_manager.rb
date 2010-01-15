@@ -19,8 +19,29 @@ module Manuscript
       @file = TemplateFile.new
       @file.file = new_file
       @file.save
-      puts @file.inspect
-      puts params.inspect
+      redirect '/admin/template_files'
+    end
+    
+    get '/admin/template_files/:id/edit' do
+      @file = TemplateFile.find(params[:id])
+      haml :edit_template_file
+    end
+    
+    put '/admin/template_files/:id' do
+      new_file = params[:template_file][:file][:tempfile]
+      new_file.original_filename = params[:template_file][:file][:filename]
+      
+      @file = TemplateFile.find(params[:id])
+      raise Sinatra::NotFound unless @file
+      @file.file = new_file
+      @file.save
+      redirect '/admin/template_files'
+    end
+    
+    delete '/admin/template_files/:id' do
+      @file = TemplateFile.find(params[:id])
+      raise Sinatra::NotFound unless @file
+      @file.destroy
       redirect '/admin/template_files'
     end
   end
