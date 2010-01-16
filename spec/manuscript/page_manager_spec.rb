@@ -13,7 +13,7 @@ describe "PageManager" do
     end
   
     it "should display list with both pages" do
-      request "/admin/pages"
+      get "/admin/pages"
       
       last_response.should be_ok
       last_response.body.should include("index")
@@ -24,12 +24,11 @@ describe "PageManager" do
       get "/admin/pages/new"
       last_response.should be_ok
       
-      test_time = (Time.now - 1.day).to_s
-      post "/admin/pages", :page => { :name => test_time, :contents => test_time  }
+      post "/admin/pages", :page => { :name => "new-page", :contents => "New page contents"  }
       last_response.should be_redirect
       follow_redirect!
       last_response.should be_ok
-      last_response.body.should include(test_time)
+      last_response.body.should include("New page contents")
     end
     
     it "should allow pages to be edited" do
@@ -38,12 +37,11 @@ describe "PageManager" do
       last_response.should be_ok
       last_response.body.should include(page.contents)
       
-      test_time = Time.now.to_s
-      put "/admin/pages/#{page.id}", :page => { :contents => test_time }
+      put "/admin/pages/#{page.id}", :page => { :contents => "Changed page contents" }
       last_response.should be_redirect
       follow_redirect!
       last_response.should be_ok
-      last_response.body.should include(test_time)
+      last_response.body.should include("Changed page contents")
     end
   end  
   
