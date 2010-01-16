@@ -1,7 +1,16 @@
 %ol.menu
 	%li 
-		%a{:href => "/admin/pages"} Pages
+		- if request.path_info =~ /^\/admin\/pages/
+			%a.current{:href => "/admin/pages"} Pages
+		- else
+			%a{:href => "/admin/pages"} Pages
 	%li 
-		%a{:href => "/admin/templates"} Templates		
+		- if (request.path_info =~ /^\/admin\/templates/) || (request.path_info =~ /^\/admin\/layouts/)
+			%a.current{:href => "/admin/templates"} Templates		
+		- else
+			%a{:href => "/admin/templates"} Templates		
 	%li 
-		%a{:href => "/admin/template_files"} Files
+		- if request.path_info =~ /^\/admin\/template_files/
+			%a.current{:href => "/admin/template_files"} Files
+		- else
+			%a{:href => "/admin/template_files"} Files

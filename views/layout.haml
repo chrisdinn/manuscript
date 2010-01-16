@@ -3,7 +3,7 @@
 		%title Manuscript, simple content management
 		%link{ :rel=>'stylesheet', :href=>'/css/base.css', :type=>'text/css', :media=>'screen' }
 	%body
+		= haml(:menu, :layout => false)
 		#page_container
-			= haml(:menu, :layout => false)
 			= yield
 	
