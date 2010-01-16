@@ -27,5 +27,6 @@ module Sinatra
     set :views, File.dirname(__FILE__) + "/../views"
     set :static, true
     set :public, File.dirname(__FILE__) + "/../public"
+    set :raise_errors, false
   end
 end

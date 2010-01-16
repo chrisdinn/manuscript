@@ -13,8 +13,5 @@ module Manuscript
       @page.to_html(@user)
     end
     
-    error do
-      'Sorry there was an error rendering your page - ' + env['sinatra.error'].name
-    end
   end
 end
