@@ -8,6 +8,14 @@ describe Manuscript::Page do
   it { should validate_uniqueness_of(:name) }
   it { should belong_to(:template) }
   
+  it "should restrict names to uri-friendly strings" do
+    should allow_value('page-name').for(:name)
+    should allow_value('page1name').for(:name)
+    should_not allow_value('page#name').for(:name)
+    should_not allow_value('page name').for(:name)
+    should_not allow_value('page/name').for(:name)
+  end
+  
   describe "rendering a page as HTML" do
     before do
       @page = Manuscript::Page.create!(:name => 'words', :contents => 'we **got** em')

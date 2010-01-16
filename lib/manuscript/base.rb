@@ -1,5 +1,5 @@
-module Manuscript 
-  class Base < Sinatra::Base
+module Manuscript
+  class Base < Sinatra::Base    
     get "/:page_name" do
       @page = Page.find_by_name(params[:page_name])
       raise Sinatra::NotFound unless @page
