@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{manuscript}
-  s.version = "0.1.6"
+  s.version = "0.1.7"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["hotink"]
-  s.date = %q{2010-01-14}
+  s.date = %q{2010-01-16}
   s.description = %q{A gem for publishing a small Hot Ink authenticated site}
   s.email = %q{chris@hotink.net}
   s.extra_rdoc_files = [
@@ -40,6 +40,7 @@ Gem::Specification.new do |s|
      "lib/manuscript/template_file.rb",
      "lib/manuscript/template_file_manager.rb",
      "lib/manuscript/template_manager.rb",
+     "lib/manuscript/user.rb",
      "manuscript.gemspec",
      "public/css/base.css",
      "spec/manuscript/base_spec.rb",
@@ -50,6 +51,7 @@ Gem::Specification.new do |s|
      "spec/manuscript/template_file_manager_spec.rb",
      "spec/manuscript/template_file_spec.rb",
      "spec/manuscript/template_manager_spec.rb",
+     "spec/manuscript/user_spec.rb",
      "spec/spec.opts",
      "spec/spec_helper.rb",
      "views/edit_template_file.haml",
@@ -76,6 +78,7 @@ Gem::Specification.new do |s|
      "spec/manuscript/template_file_manager_spec.rb",
      "spec/manuscript/template_file_spec.rb",
      "spec/manuscript/template_manager_spec.rb",
+     "spec/manuscript/user_spec.rb",
      "spec/spec_helper.rb"
   ]
 
