@@ -6,7 +6,15 @@ ol.menu li { display: inline; margin: 0 10px; }
 ol.menu li a { text-decoration: none; }
 ol.menu li a.current { font-weight: bold; text-decoration: underline; }
 
+ol#pages { list-style: none; font-size: 20px; margin: 30px 0; }
+ol#pages li { margin: 15px 0;}
+
 form label { display:block; padding: 10px 0; }
-form input[type="text"] { font-size: 18px; width: 600px;}
-form textarea { font-family: "andale mono", courier, tahoma, mono; font-size: 15px; width: 940px; height: 500px; }
+form input[type="text"] { font-size: 20px; width: 600px; border: 1px solid #AAA; padding: 3px; }
+form textarea { font-family: "andale mono", courier, tahoma, mono; padding: 5px; font-size: 15px; width: 940px; height: 500px; }
 form input[type="submit"] { float: right; }
+
+.button_link { text-decoration: none; outline: none; font-size: 12px; padding: 3px; color: black; background-color: #FFF6DD; border: 1px solid #333;-moz-border-radius: 3px; -webkit-border-radius: 3px; }
+.button_link:visited { color: black; }
+.button_link:hover { background-color: #CEE4F3; }
+.button_link:active { background-color: #EEF4FF; }

@@ -1,7 +1,8 @@
 %h1 Pages
-%ol
+%ol#pages
 	- @pages.each do |page|
 		%li
 			%a{:href => "/admin/pages/#{page.id}/edit"}
-				= page.name
-%a{ :href => "/admin/pages/new" } New page
+				= "/#{page.name}"
+
+%a.button_link{ :href => "/admin/pages/new" } New page

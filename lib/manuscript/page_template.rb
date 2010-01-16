@@ -4,7 +4,7 @@ module Manuscript
     
     def render(options)
       if layout
-        layout.render({ 'contents' => super(options) })
+        layout.render({ 'current_user' => options['current_user'], 'contents' => super(options) })
       else
         super(options)
       end

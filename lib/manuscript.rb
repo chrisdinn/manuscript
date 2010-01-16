@@ -18,6 +18,7 @@ require 'manuscript/layout_template'
 require 'manuscript/template_manager'
 require 'manuscript/template_file'
 require 'manuscript/template_file_manager'
+require 'manuscript/user'
 
 ActiveRecord::Base.logger = Logger.new(STDERR)
 
