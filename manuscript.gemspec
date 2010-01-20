@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{manuscript}
-  s.version = "0.1.7"
+  s.version = "0.1.8"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["hotink"]
-  s.date = %q{2010-01-16}
+  s.date = %q{2010-01-20}
   s.description = %q{A gem for publishing a small Hot Ink authenticated site}
   s.email = %q{chris@hotink.net}
   s.extra_rdoc_files = [
