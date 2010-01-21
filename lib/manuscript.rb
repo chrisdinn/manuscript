@@ -20,6 +20,10 @@ require 'manuscript/template_file'
 require 'manuscript/template_file_manager'
 require 'manuscript/user'
 
+
+log = File.new("application.log", "a")
+STDOUT.reopen(log)
+STDERR.reopen(log)
 ActiveRecord::Base.logger = Logger.new(STDERR)
 
 module Sinatra
@@ -28,5 +32,6 @@ module Sinatra
     set :static, true
     set :public, File.dirname(__FILE__) + "/../public"
     set :raise_errors, false
+    set :logging, true
   end
 end
