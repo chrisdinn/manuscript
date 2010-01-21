@@ -22,7 +22,6 @@ require 'manuscript/user'
 
 
 log = File.new("application.log", "a")
-$stdout.reopen(log)
 $stderr.reopen(log)
 LOGGER = Logger.new($stderr)
 ActiveRecord::Base.logger = LOGGER

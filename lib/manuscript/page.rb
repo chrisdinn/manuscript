@@ -8,6 +8,10 @@ module Manuscript
     validates_presence_of :name
     validates_uniqueness_of :name
     validates_format_of :name, :with => /^[-a-zA-Z0-9]+$/
+    
+    belongs_to :parent, :class_name => "Page"
+    has_many :child_pages, :class_name => "Page", :foreign_key => "parent_id"
+    named_scope :main_pages, :conditions => { :parent_id => nil }
   
     def to_html(user = nil)
       if template

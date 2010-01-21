@@ -30,7 +30,7 @@ describe "PageManager" do
       last_response.should be_ok
       last_response.body.should include("New page contents")
     end
-    
+        
     it "should allow pages to be edited" do
       page = Manuscript::Page.first
       get "/admin/pages/#{page.id}/edit"
