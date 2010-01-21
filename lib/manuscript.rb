@@ -22,9 +22,9 @@ require 'manuscript/user'
 
 
 log = File.new("application.log", "a")
-STDOUT.reopen(log)
-STDERR.reopen(log)
-ActiveRecord::Base.logger = Logger.new(STDERR)
+$stdout.reopen(log)
+$stderr.reopen(log)
+ActiveRecord::Base.logger = Logger.new($stderr)
 
 module Sinatra
   class Base
