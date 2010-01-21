@@ -9,7 +9,7 @@ describe "PageManager" do
   
   describe "when there are two pages" do
     before do
-      @pages = Manuscript::Page.create([{:name => "index", :contents => "Page 1"}, {:name => "contact", :contents => "Page 2"}])
+      @pages = Manuscript::Page.create([{:name => "details", :contents => "Page 1"}, {:name => "contact", :contents => "Page 2"}])
     end
   
     it "should display list with both pages" do
@@ -20,15 +20,30 @@ describe "PageManager" do
       last_response.body.should include("contact")
     end
     
-    it "should allow new page to be created" do
-      get "/admin/pages/new"
-      last_response.should be_ok
+    describe "creating a new page" do
+      it "should allow new top-level page to be created" do
+        get "/admin/pages/new"
+        last_response.should be_ok
       
-      post "/admin/pages", :page => { :name => "new-page", :contents => "New page contents"  }
-      last_response.should be_redirect
-      follow_redirect!
-      last_response.should be_ok
-      last_response.body.should include("New page contents")
+        post "/admin/pages", :page => { :name => "new-page", :contents => "New page contents"  }
+        last_response.should be_redirect
+        follow_redirect!
+        last_response.should be_ok
+        last_response.body.should include("New page contents")
+      end
+      
+      it "should allow a new child-page to be created" do
+        parent = @pages.first
+        get "/admin/pages/new", :parent_id => parent.id
+        last_response.should be_ok
+        last_response.should include(parent.name)
+        
+        post "/admin/pages", :page => { :name => "new-page", :contents => "New page contents", :parent_id => parent.id  }
+        last_response.should be_redirect
+        follow_redirect!
+        last_response.should be_ok
+        last_response.body.should include(parent.name)
+      end
     end
         
     it "should allow pages to be edited" do
