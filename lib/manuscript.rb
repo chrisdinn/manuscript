@@ -24,7 +24,9 @@ require 'manuscript/user'
 log = File.new("application.log", "a")
 $stdout.reopen(log)
 $stderr.reopen(log)
-ActiveRecord::Base.logger = Logger.new($stderr)
+LOGGER = Logger.new($stderr)
+ActiveRecord::Base.logger = LOGGER
+OpenID::Util.logger = LOGGER
 
 module Sinatra
   class Base
