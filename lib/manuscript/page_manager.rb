@@ -8,7 +8,7 @@ module Manuscript
     end
     
     get "/admin/pages/?" do
-      @pages = Page.all
+      @pages = Page.main_pages.all
       haml :pages
     end
   

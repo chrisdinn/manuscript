@@ -46,6 +46,16 @@ describe Manuscript::Page do
     page3.url.should == "/some/things/youneed"
   end
   
+  it "should find child pages by path" do
+    page1 = Manuscript::Page.create!(:name => 'one', :contents => 'we got one') 
+    page2 = Manuscript::Page.create!(:name => 'two', :contents => 'we got two', :parent => page1) 
+    page3 = Manuscript::Page.create!(:name => 'three', :contents => 'we got three', :parent => page2)
+    
+    Manuscript::Page.find_by_path("#{page1.name}").should == page1
+    Manuscript::Page.find_by_path("#{page1.name}/#{page2.name}").should == page2
+    Manuscript::Page.find_by_path("#{page1.name}/#{page2.name}/#{page3.name}").should == page3
+  end
+  
   it "should restrict names to uri-friendly strings" do
     should allow_value('page-name').for(:name)
     should allow_value('page1name').for(:name)
