@@ -7,7 +7,7 @@
 		%legend Edit page
 		%input{ :type => :submit }
 		%label 
-			Name
+			= "Page url:&nbsp;&nbsp;<strong>#{@page.parent_url}/</strong>"
 			%input{:type => :text, :name => "page[name]", :value => "#{@page.name}"}
 		%label
 			Template
@@ -20,6 +20,8 @@
 					- else
 						%option{:value => "#{template.id}"}
 							= template.name
+		- unless @page.parent_id.nil?
+			%input{:type => :hidden, :name => "page[parent_id]", :value => "#{@page.parent_id}"}
 		%label{:for => "page_contents" } 
 			Contents
 		%textarea{:name => "page[contents]", :id => "page_contents"}= @page.contents

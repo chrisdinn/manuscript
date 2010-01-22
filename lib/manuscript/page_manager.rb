@@ -8,13 +8,13 @@ module Manuscript
     end
     
     get "/admin/pages/?" do
-      @pages = Page.all
+      @pages = Page.main_pages.all
       haml :pages
     end
   
     get "/admin/pages/new" do
       @templates = Manuscript::PageTemplate.all
-      @page = Page.new
+      @page = Page.new(:parent_id => params[:parent_id])
       haml :page
     end
   
@@ -35,6 +35,13 @@ module Manuscript
       halt 404, "Page not found" unless @page
       @page.update_attributes!(params[:page])
       redirect "/admin/pages/#{@page.id}/edit"
+    end
+    
+    delete '/admin/pages/:id' do
+      @page = Page.find_by_id params[:id]
+      raise Sinatra::NotFound unless @page
+      @page.destroy
+      redirect '/admin/pages'
     end
   end
   

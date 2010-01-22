@@ -21,4 +21,14 @@ describe Manuscript::Base do
     get "/#{@page.name.reverse}"
     last_response.should be_not_found
   end
+  
+  it "should only display child pages beneath their parents" do
+    new_page = Manuscript::Page.create!(:name => "child", :parent_id => @page.id, :contents => "Here are some **Sample issue contents**." )
+    
+    get "/#{new_page.name}"
+    last_response.should be_not_found
+  
+    get "/#{@page.name}/#{new_page.name}"
+    last_response.should be_ok
+  end
 end

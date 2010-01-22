@@ -16,7 +16,7 @@ describe "PageManager" do
       get "/admin/pages"
       
       last_response.should be_ok
-      last_response.body.should include("index")
+      last_response.body.should include("details")
       last_response.body.should include("contact")
     end
     
@@ -36,7 +36,7 @@ describe "PageManager" do
         parent = @pages.first
         get "/admin/pages/new", :parent_id => parent.id
         last_response.should be_ok
-        last_response.should include(parent.name)
+        last_response.body.should include(parent.name)
         
         post "/admin/pages", :page => { :name => "new-page", :contents => "New page contents", :parent_id => parent.id  }
         last_response.should be_redirect
@@ -57,6 +57,15 @@ describe "PageManager" do
       follow_redirect!
       last_response.should be_ok
       last_response.body.should include("Changed page contents")
+    end
+    
+    it "should allow pages to be deleted" do
+      page = Manuscript::Page.first
+      delete "/admin/pages/#{page.id}"
+      last_response.should be_redirect
+      
+      get "/admin/pages/#{page.id}/edit"
+      last_response.should be_not_found      
     end
   end  
   

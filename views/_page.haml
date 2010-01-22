@@ -1,0 +1,10 @@
+%li
+	%a{:href => "/admin/pages/#{page.id}/edit"}
+		="/#{page.name}"
+	%small
+		%a{:style => "color: red;", :onclick => "if(confirm('You are about to delete one of your pages. Click OK to delete or Cancel to return to the page.')) { var f = document.createElement('form'); f.style.display = 'none'; this.parentNode.appendChild(f); {  f.method = 'POST'; f.action = this.href;var m = document.createElement('input'); m.setAttribute('type', 'hidden'); m.setAttribute('name', '_method'); m.setAttribute('value', 'delete'); f.appendChild(m);f.submit(); } } return false;", :href => "/admin/pages/#{page.id}" } x
+	%small
+		%a{:href => "/admin/pages/new?parent_id=#{page.id}"} (add subpage)
+	%ol.child_pages
+		- page.child_pages.each do |child|
+			= haml :_page, :locals => { :page => child }, :layout => false

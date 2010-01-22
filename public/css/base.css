@@ -1,13 +1,20 @@
 body { font-size: 16px; color: #222; line-height: 1.1em; margin:0; font-family: "Helvetica Neue", verdana, tahoma, arial, sans-serif; }
 div#page_container { width: 960px; margin: 5px 10px; }
 
+ol#pages small { font-size: 65%;}
+ol#pages small a { text-decoration: none; font-weight: 200;}
+
 ol.menu { list-style: none; padding: 5px; margin-top: 0; background-color: #FFF6DD; }
 ol.menu li { display: inline; margin: 0 10px; }
 ol.menu li a { text-decoration: none; }
 ol.menu li a.current { font-weight: bold; text-decoration: underline; }
 
+ol#pages small { font-size: 65%;}
+ol#pages small a { text-decoration: none; }
+
 ol#pages { list-style: none; font-size: 20px; margin: 30px 0; }
-ol#pages li { margin: 15px 0;}
+ol#pages ol { list-style: none; font-size: 20px; margin: 10px 0; }
+ol#pages li { margin: 15px 0; font-weight: bold; }
 
 form label { display:block; padding: 10px 0; }
 form input[type="text"] { font-size: 20px; width: 600px; border: 1px solid #AAA; padding: 3px; }
