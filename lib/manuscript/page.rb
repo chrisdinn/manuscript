@@ -13,6 +13,22 @@ module Manuscript
     has_many :child_pages, :class_name => "Page", :foreign_key => "parent_id"
     named_scope :main_pages, :conditions => { :parent_id => nil }
   
+    def url
+      if parent
+        "#{parent.url}/#{name}"
+      else
+        "/#{name}"
+      end
+    end
+    
+    def parent_url
+      if parent
+        parent.url
+      else
+        ""
+      end
+    end
+    
     def to_html(user = nil)
       if template
         template.render({'current_user' => user, 'contents' => RDiscount.new(contents).to_html})

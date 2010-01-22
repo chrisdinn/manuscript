@@ -1,8 +1,6 @@
 %h1 Pages
 %ol#pages
 	- @pages.each do |page|
-		%li
-			%a{:href => "/admin/pages/#{page.id}/edit"}
-				= "/#{page.name}"
+		= haml :_page, :locals => { :page => page }, :layout => false
 
 %a.button_link{ :href => "/admin/pages/new" } New page
