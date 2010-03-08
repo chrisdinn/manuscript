@@ -9,9 +9,9 @@ module Manuscript
     validates_uniqueness_of :name
     validates_format_of :name, :with => /^[-a-zA-Z0-9]+$/
     
-    belongs_to :parent, :class_name => "Page"
-    has_many :child_pages, :class_name => "Page", :foreign_key => "parent_id", :order => :name
-    named_scope :main_pages, :conditions => { :parent_id => nil }
+    belongs_to :parent, :class_name => "Manuscript::Page"
+    has_many :child_pages, :class_name => "Manuscript::Page", :foreign_key => "parent_id", :order => :name
+    scope :main_pages, :conditions => { :parent_id => nil }
   
     def self.find_by_path(path)
       page_names = path.split("/")

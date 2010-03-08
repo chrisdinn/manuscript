@@ -1,17 +1,17 @@
 %p
 	%a{ :href => "/admin/templates" } &laquo back
 	
-- if @template.layout?
-	%h1 Layout
-- else
-	%h1 Template
+
 	
 %form{:method =>:post, :action => "/admin/#{(@template.layout?&&@template.new_record?) ? "layouts" : "templates"}/#{@template.id unless @template.new_record?}"}
 	- unless @template.new_record?
 		%input{ :type => :hidden, :name => "_method", :value => :put }
 	%fieldset
-		%legend Edit template
-		%input{ :type => :submit }
+		- if @template.layout?
+			%legend Edit layout
+		- else
+			%legend Edit template
+		%input{ :type => :submit, :class => "btn large blue", :value => "Save" }
 		%label 
 			Name
 			%input{:type => :text, :name => "template[name]", :value => "#{@template.name}"}

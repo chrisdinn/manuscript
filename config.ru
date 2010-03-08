@@ -6,9 +6,9 @@ ActiveRecord::Base.establish_connection :adapter => 'sqlite3', :database =>  'ma
 use Rack::Session::Cookie
 use Rack::Static, :urls => ["/template_files"]
 use Gatekeeper::Middleware do |sso|
-  sso.sso_url = "http://hotink.theorem.ca/sso"
+  sso.sso_url = "http://0.0.0.0:3000/sso"
 end
-use Manuscript::Keymaster, :hotink_account_id => 1
+use Manuscript::Keymaster
 use Manuscript::PageManager
 use Manuscript::TemplateManager
 use Manuscript::TemplateFileManager

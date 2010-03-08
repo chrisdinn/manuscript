@@ -1,6 +1,5 @@
 %h1 Pages
+%a.btn.small.orange{ :href => "/admin/pages/new" } New page
 %ol#pages
 	- @pages.each do |page|
 		= haml :_page, :locals => { :page => page }, :layout => false
-
-%a.button_link{ :href => "/admin/pages/new" } New page

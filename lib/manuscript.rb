@@ -29,7 +29,7 @@ OpenID::Util.logger = LOGGER
 
 module Sinatra
   class Base
-    set :views, File.dirname(__FILE__) + "/../views"
+    set :views, File.dirname(__FILE__) + "/manuscript/views"
     set :static, true
     set :public, File.dirname(__FILE__) + "/../public"
     set :raise_errors, false

@@ -1,0 +1,22 @@
+%ol.menu
+	- if request.path_info =~ /^\/admin\/pages/
+		%li.current 
+			%a{:href => "/admin/pages"} Pages
+	- else
+		%li
+			%a{:href => "/admin/pages"} Pages
+	- if (request.path_info =~ /^\/admin\/templates/) || (request.path_info =~ /^\/admin\/layouts/)
+		%li.current
+			%a{:href => "/admin/templates"} Templates
+	- else
+		%li
+			%a{:href => "/admin/templates"} Templates
+	- if request.path_info =~ /^\/admin\/template_files/
+		%li.current 
+			%a{:href => "/admin/template_files"} Files
+	- else
+		%li
+			%a{:href => "/admin/template_files"} Files
+	%li{:style => "float: right; font-size: 13px;" }
+		=session[:sso][:email]
+		%a{:href => "/sso/logout", :style => "margin-left: 10px; font-size: 13px;" } Sign out
