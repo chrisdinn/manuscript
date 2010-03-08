@@ -15,8 +15,6 @@ module Manuscript
   
     def self.find_by_path(path)
       page_names = path.split("/")
-      LOGGER.info("manuscript --> path: " + path.to_s)
-      LOGGER.info("manuscript --> page_names: " + page_names.inspect)
       @page = self.main_pages.find_by_name(page_names.delete_at(0))
       raise ActiveRecord::RecordNotFound unless @page
       unless page_names.blank?
