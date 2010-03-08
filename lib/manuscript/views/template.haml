@@ -1,8 +1,3 @@
-%p
-	%a{ :href => "/admin/templates" } &laquo back
-	
-
-	
 %form{:method =>:post, 'accept-charset' => "utf-8", :action => "/admin/#{(@template.layout?&&@template.new_record?) ? "layouts" : "templates"}/#{@template.id unless @template.new_record?}"}
 	- unless @template.new_record?
 		%input{ :type => :hidden, :name => "_method", :value => :put }

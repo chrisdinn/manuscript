@@ -24,8 +24,8 @@ ol.menu {
 	border-bottom: 1px solid rgba(0,0,0,0.25);
 }
 ol.menu li {  color: #8AA5FF; display: inline; margin: 0 10px; }
-ol.menu li a { color: #EFEFEF; font-size: 18px; text-shadow: 0 -1px 1px rgba(0,0,0,0.25);}
-ol.menu li.current a { font-weight: bold; color: #ED71C9; }
+ol.menu li a { color: #EFEFEF; font-size: 18px; font-weight: light; text-shadow: 0 -1px 1px rgba(0,0,0,0.25);}
+ol.menu li.current a { font-weight: normal; color: #ED71C9; }
 
 ol#pages small { font-size: 45%;}
 
@@ -34,8 +34,8 @@ ol#pages ol { list-style: none; font-size: 27px; margin: 10px 0; }
 ol#pages li { margin: 25px 0; font-weight: bold; }
 
 form label { display:block; padding: 10px 0; }
-form legend { font-size: 29px; font-weight: bold; padding-bottom: 15px;}
-form fieldset { border: 0; }
+form legend { font-size: 29px; padding-top: 15px; font-weight: bold; padding-bottom: 15px;}
+form fieldset { border: 0;}
 form input[type="text"] { font-size: 20px; width: 600px; border: 1px solid #AAA; padding: 3px; }
 form textarea { font-family: Monaco, "andale mono", courier, tahoma, mono; padding: 5px; font-size: 15px; width: 940px; height: 500px; }
 form input[type="submit"] { float: right; }
