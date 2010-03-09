@@ -15,8 +15,8 @@
 		%li.current 
 			%a{:href => "/admin/template_files"} Files
 	- else
-		%li
+		%li 
 			%a{:href => "/admin/template_files"} Files
-	%li{:style => "float: right; font-size: 13px;" }
+	%li{:style => "float: right; font-size: 12px;padding-left: 35px; margin-top:2px;" }
 		=session[:sso][:email]
-		%a{:href => "/sso/logout", :style => "margin-left: 10px; font-size: 13px;" } Sign out
+		%a{:href => "/sso/logout", :style => "margin-left: 7px; font-size: 12px;" } Sign out

@@ -1,9 +1,9 @@
 %h1 Template files
 %a.btn.small.pink{ :href => "/admin/template_files/new" } Upload a file
-%ol
+%ol#template_files
 	- @files.each do |file|
 		%li
 			= "#{file.url} "
 			%small
-				%a{:href => "/admin/template_files/#{file.id}/edit"} edit
-				%a{ :onclick => "if(confirm('You are about to delete a template file. Click OK to delete or Cancel to return to the page.')) { var f = document.createElement('form'); f.style.display = 'none'; this.parentNode.appendChild(f); {  f.method = 'POST'; f.action = this.href;var m = document.createElement('input'); m.setAttribute('type', 'hidden'); m.setAttribute('name', '_method'); m.setAttribute('value', 'delete'); f.appendChild(m);f.submit(); } } return false;", :href => "/admin/template_files/#{file.id}" } delete
+				%a.btn.red.small{:style => "padding:2px 5px 4px 5px;margin:0px 6px 0px 6px;top:-5px;", :onclick => "if(confirm('You are about to delete a template file. Click OK to delete or Cancel to return to the page.')) { var f = document.createElement('form'); f.style.display = 'none'; this.parentNode.appendChild(f); {  f.method = 'POST'; f.action = this.href;var m = document.createElement('input'); m.setAttribute('type', 'hidden'); m.setAttribute('name', '_method'); m.setAttribute('value', 'delete'); f.appendChild(m);f.submit(); } } return false;", :href => "/admin/template_files/#{file.id}" } x
+				%a.btn.blue.small{:style => "padding:2px 5px 4px 5px;margin:0px;top:-5px;text-decoration:none;", :href => "/admin/template_files/#{file.id}/edit"} edit

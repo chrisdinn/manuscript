@@ -1,6 +1,6 @@
 %h1 Templates
 %a.btn.small.green{ :href => "/admin/templates/new" } New template
-%ol
+%ol#templates
 	- @templates.each do |template|
 		%li
 			%a{:href => "/admin/templates/#{template.id}/edit"}
@@ -8,7 +8,7 @@
 %hr{ :style => "clear:both; margin-top:10px;"}
 %h1 Layouts
 %a.btn.small.yellow{ :href => "/admin/layouts/new" } New layout
-%ol
+%ol#layouts
 	- @layouts.each do |template|
 		%li
 			%a{:href => "/admin/templates/#{template.id}/edit"}

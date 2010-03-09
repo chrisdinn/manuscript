@@ -3,10 +3,10 @@
 body { font-size: 16px; color: #222; line-height: 1.1em; margin:0; font-family: "Helvetica Neue", verdana, tahoma, arial, sans-serif; }
 div#page_container { width: 960px; margin: 5px 10px; }
 
-h1 { float: left; margin-top: 10px; }
+h1 { float: left; }
 a { color: #2821DC; text-decoration:none;}
 a:hover { text-decoration:underline;}
-h1+a { margin-top: 10px; margin-left: 15px; }
+h1+a { margin-top: 22px; margin-left: 20px; }
 h1+a+ol { clear: left; }
 fieldset { clear: left; }
 
@@ -14,7 +14,8 @@ ol#pages small { font-size: 65%;}
 ol#pages small a { text-decoration: none; font-weight: 200;}
 
 ol.menu { 
-	background: #222 url(/images/buttonbg.png) repeat-x; 
+	background: #222 url(/images/buttonbg.png) repeat-x;
+	float: right; 
 	list-style: none; 
 	padding: 7px 5px; margin: 5px 10px 15px 10px; 
 	-moz-border-radius: 5px; 
@@ -23,19 +24,24 @@ ol.menu {
 	-webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
 	border-bottom: 1px solid rgba(0,0,0,0.25);
 }
-ol.menu li {  color: #8AA5FF; display: inline; margin: 0 10px; }
-ol.menu li a { color: #EFEFEF; font-size: 18px; font-weight: light; text-shadow: 0 -1px 1px rgba(0,0,0,0.25);}
+ol.menu li {  color: #8AA5FF; display: inline; margin: 0 9px; }
+ol.menu li a { color: #EFEFEF; font-size: 15px; font-weight: lighter; text-shadow: 0 -1px 1px rgba(0,0,0,0.25);}
+ol.menu li a:hover { text-decoration: none; color: #C9C9C9;}
 ol.menu li.current a { font-weight: normal; color: #ED71C9; }
 
 ol#pages small { font-size: 45%;}
 
 ol#pages { list-style: none; font-size: 27px; margin: 30px 0; }
 ol#pages ol { list-style: none; font-size: 27px; margin: 10px 0; }
-ol#pages li { margin: 25px 0; font-weight: bold; }
+ol#pages li, ol#templates li, ol#layouts li { margin: 25px 0; font-weight: bold; }
+
+ol#templates, ol#layouts { list-style: none; font-size: 23px; margin: 30px 0; }
+ol#templates a, ol#layouts a { font-weight: lighter; }
+ol#template_files { list-style: none; padding-left: 0; font-size: 18px; }
+ol#template_files li { padding: 5px 0; }
 
 form label { display:block; padding: 10px 0; }
-form legend { font-size: 29px; padding-top: 15px; font-weight: bold; padding-bottom: 15px;}
-form fieldset { border: 0;}
+form fieldset { border: 0;clear:both;}
 form input[type="text"] { font-size: 20px; width: 600px; border: 1px solid #AAA; padding: 3px; }
 form textarea { font-family: Monaco, "andale mono", courier, tahoma, mono; padding: 5px; font-size: 15px; width: 940px; height: 500px; }
 form input[type="submit"] { float: right; }
