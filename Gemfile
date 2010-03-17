@@ -1,0 +1,12 @@
+source 'http://gemcutter.org'
+
+gem 'sqlite3-ruby'
+gem 'rack'
+gem 'ruby-openid', :require => 'openid'
+gem 'sinatra'
+gem 'activerecord'
+gem 'rdiscount'
+gem 'liquid'
+gem 'paperclip'
+gem 'haml'
+gem 'gatekeeper'

@@ -6,7 +6,7 @@ ActiveRecord::Base.establish_connection :adapter => 'sqlite3', :database =>  'ma
 use Rack::Session::Cookie
 use Rack::Static, :urls => ["/template_files"]
 use Gatekeeper::Middleware do |sso|
-  sso.sso_url = "http://0.0.0.0:3000/sso"
+  sso.sso_url = "http://digital-achiever.com/sso"
 end
 use Manuscript::Keymaster
 use Manuscript::PageManager

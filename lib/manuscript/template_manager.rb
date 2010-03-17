@@ -5,6 +5,7 @@ module Manuscript
     get "/admin/templates/?" do
       @templates = PageTemplate.all
       @layouts = LayoutTemplate.all
+      @template_files = TemplateFile.all
       haml :templates
     end
     

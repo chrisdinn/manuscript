@@ -1,7 +1,7 @@
 @import "wmd.css";
 
 body { font-size: 16px; color: #222; line-height: 1.1em; margin:0; font-family: "Helvetica Neue", verdana, tahoma, arial, sans-serif; }
-div#page_container { width: 960px; margin: 5px 10px; }
+div#page_container { width: 960px; margin: 5px auto; }
 
 h1 { float: left; }
 a { color: #2821DC; text-decoration:none;}
@@ -43,7 +43,7 @@ ol#template_files li { padding: 5px 0; }
 form label { display:block; padding: 10px 0; }
 form fieldset { border: 0;clear:both;}
 form input[type="text"] { font-size: 20px; width: 600px; border: 1px solid #AAA; padding: 3px; }
-form textarea { font-family: Monaco, "andale mono", courier, tahoma, mono; padding: 5px; font-size: 15px; width: 940px; height: 500px; }
+form textarea { font-family: Menlo, Monaco, "andale mono", courier, tahoma, monospace; padding: 5px; font-size: 15px; width: 940px; height: 500px; }
 form input[type="submit"] { float: right; }
 
 /* WMD buttons */

@@ -1,12 +1,14 @@
-require 'rack/static'
+begin
+  # Try to require the preresolved locked set of gems.
+  require File.expand_path('../.bundle/environment', __FILE__)
+rescue LoadError
+  # Fall back on doing an unlocked resolve at runtime.
+  require "rubygems"
+  require "bundler"
+  Bundler.setup
+end
 
-require 'gatekeeper'
-require 'gatekeeper/helpers/authentication'
-
-require 'sinatra/base'
-require 'haml'
-require 'active_record'
-require 'logger'
+Bundler.require
 
 require 'manuscript/base'
 require 'manuscript/keymaster'
@@ -32,7 +34,7 @@ module Sinatra
     set :views, File.dirname(__FILE__) + "/manuscript/views"
     set :static, true
     set :public, File.dirname(__FILE__) + "/../public"
-    set :raise_errors, false
+    set :raise_errors, true
     set :logging, true
   end
 end
