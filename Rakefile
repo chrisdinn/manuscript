@@ -63,5 +63,5 @@ end
 
 task :environment do
   require 'manuscript'
-  ActiveRecord::Base.establish_connection :adapter => 'sqlite3', :database =>  'manuscript.sqlite3.db'
+  ActiveRecord::Base.establish_connection :adapter => 'sqlite3', :database =>  'manuscript_test.sqlite3.db'
 end

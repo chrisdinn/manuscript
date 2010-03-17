@@ -17,9 +17,8 @@ require 'manuscript/page_manager'
 require 'manuscript/template'
 require 'manuscript/page_template'
 require 'manuscript/layout_template'
-require 'manuscript/template_manager'
+require 'manuscript/design_manager'
 require 'manuscript/template_file'
-require 'manuscript/template_file_manager'
 require 'manuscript/user'
 
 
@@ -36,5 +35,15 @@ module Sinatra
     set :public, File.dirname(__FILE__) + "/../public"
     set :raise_errors, true
     set :logging, true
+    
+    helpers do
+      def user_email
+        if session[:sso]
+          return session[:sso][:user_email]
+        else
+          nil
+        end
+      end
+    end
   end
 end

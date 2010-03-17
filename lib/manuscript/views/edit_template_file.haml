@@ -1,6 +1,6 @@
 %p
-	%a{ :href => "/admin/template_files" } &laquo back
-%form{:method =>:post, :action => "/admin/template_files/#{@file.id}", :enctype => "multipart/form-data"}
+	%a{ :href => "/admin/design" } &laquo back
+%form{:method =>:post, :action => "/admin/design/template_files/#{@file.id}", :enctype => "multipart/form-data"}
 	%fieldset
 		%legend 
 			= "Replace file: #{@file.url}"

@@ -11,7 +11,7 @@ module Manuscript
     
     belongs_to :parent, :class_name => "Manuscript::Page"
     has_many :child_pages, :class_name => "Manuscript::Page", :foreign_key => "parent_id", :order => :name
-    scope :main_pages, :conditions => { :parent_id => nil }
+    named_scope :main_pages, :conditions => { :parent_id => nil }
   
     def self.find_by_path(path)
       page_names = path.split("/")

@@ -13,8 +13,8 @@ describe "PageManager" do
     end
   
     it "should display list with both pages" do
-      get "/admin/pages"
-      
+      get "/admin/pages", {}
+            
       last_response.should be_ok
       last_response.body.should include("details")
       last_response.body.should include("contact")

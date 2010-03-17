@@ -10,6 +10,5 @@ use Gatekeeper::Middleware do |sso|
 end
 use Manuscript::Keymaster
 use Manuscript::PageManager
-use Manuscript::TemplateManager
-use Manuscript::TemplateFileManager
+use Manuscript::DesignManager
 run Manuscript::Base.new

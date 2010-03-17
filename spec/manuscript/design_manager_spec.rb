@@ -1,10 +1,10 @@
 require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
-describe Manuscript::TemplateManager do
+describe Manuscript::DesignManager do
    include Rack::Test::Methods    
 
    def app
-     Manuscript::TemplateManager 
+     Manuscript::DesignManager 
    end
 
    describe "when there are templates and layouts" do
@@ -14,7 +14,7 @@ describe Manuscript::TemplateManager do
       end
   
       it "should display list with both templates and both layouts" do
-        get "/admin/templates"
+        get "/admin/design"
         last_response.should be_ok
         last_response.body.should include("Template 1")
         last_response.body.should include("Template 2")
@@ -23,10 +23,10 @@ describe Manuscript::TemplateManager do
       end
     
       it "should allow new template to be created" do
-        get "/admin/templates/new"
+        get "/admin/design/templates/new"
         last_response.should be_ok
       
-        post "/admin/templates", :template => { :name => "New template" }
+        post "/admin/design/templates", :template => { :name => "New template" }
         last_response.should be_redirect
         follow_redirect!
         last_response.should be_ok
@@ -34,10 +34,10 @@ describe Manuscript::TemplateManager do
       end
     
       it "should allow new layout to be created" do
-        get "/admin/layouts/new"
+        get "/admin/design/layouts/new"
         last_response.should be_ok
       
-        post "/admin/layouts", :template => { :name => "New layout" }
+        post "/admin/design/layouts", :template => { :name => "New layout" }
         last_response.should be_redirect
         follow_redirect!
         last_response.body.should include("New layout")
@@ -45,11 +45,11 @@ describe Manuscript::TemplateManager do
     
       it "should allow templates to be edited" do
         template = Manuscript::Template.first
-        get "/admin/templates/#{template.id}/edit"
+        get "/admin/design/templates/#{template.id}/edit"
         last_response.should be_ok
         last_response.body.should include(template.name)
       
-        put "/admin/templates/#{template.id}", :template => { :name => "My new template" }
+        put "/admin/design/templates/#{template.id}", :template => { :name => "My new template" }
         last_response.should be_redirect
         follow_redirect!
         last_response.should be_ok
