@@ -8,11 +8,13 @@ begin
     gem.name = "manuscript"
     gem.summary = "A gem for publishing a small Hot Ink authenticated site"
     gem.description = "A gem for publishing a small Hot Ink authenticated site"
-    gem.email = "chris@hotink.net"
-    gem.homepage = "http://github.com/hotink/manuscript"
-    gem.authors = ["hotink"]
+    gem.email = "chrisgdinn@gmail.com"
+    gem.homepage = "http://github.com/chrisdinn/manuscript"
+    gem.authors = ["Chris Dinn"]
+    gem.add_dependency 'ruby-openid'
     gem.add_dependency 'activerecord', '>= 2.3.5'
     gem.add_dependency 'rdiscount', '>= 1.3.5'
+    gem.add_dependency 'aws-s3'
     gem.add_dependency 'sinatra', '>= 0.9.4'
     gem.add_dependency 'haml', '>= 2.2.12'
     gem.add_dependency 'gatekeeper', '>= 0.1.1'

@@ -8,6 +8,7 @@ module Manuscript
     end
     
     get "/admin/pages/?" do
+      @settings = Settings.new('settings.yml')
       @pages = Page.main_pages.all
       haml :pages
     end

@@ -5,13 +5,18 @@
 	- else
 		%li
 			%a{:href => "/admin/pages"} Pages
-	- if (request.path_info =~ /^\/admin\/design/) || (request.path_info =~ /^\/admin\/design/)
+	- if request.path_info =~ /^\/admin\/design/
 		%li.current
 			%a{:href => "/admin/design"} Design
 	- else
 		%li
 			%a{:href => "/admin/design"} Design
-			
+	- if request.path_info =~ /^\/admin\/settings/
+		%li.current
+			%a{:href => "/admin/settings"} Settings
+	- else
+		%li
+			%a{:href => "/admin/settings"} Settings
 	%li{:style => "float: right; font-size: 12px;padding-left: 35px; margin-top:2px;" }
 		= user_email
 		%a{:href => "/sso/logout", :style => "margin-left: 7px; font-size: 12px;" } Sign out

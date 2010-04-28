@@ -1,0 +1,10 @@
+%h1 Settings
+%form#settings{:method =>:post, 'accept-charset' => "utf-8", :action => '/admin/settings', :style => "display:block;float: left;width: 400px;"}
+	%fieldset
+		%ol
+			%li
+				%label 
+					Site name
+					%input{:type => "text", :name => "settings[site_name]", :id => "settings_site_name", :value => @settings[:site_name] }
+			%li
+				%input{:type => "submit", :value => "Update settings"}

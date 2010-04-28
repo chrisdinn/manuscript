@@ -1,14 +1,12 @@
-begin
-  # Try to require the preresolved locked set of gems.
-  require File.expand_path('../.bundle/environment', __FILE__)
-rescue LoadError
-  # Fall back on doing an unlocked resolve at runtime.
-  require "rubygems"
-  require "bundler"
-  Bundler.setup
-end
+require 'rack/static'
 
-Bundler.require
+require 'gatekeeper'
+require 'gatekeeper/helpers/authentication'
+
+require 'sinatra/base'
+require 'haml'
+require 'active_record'
+require 'logger'
 
 require 'manuscript/base'
 require 'manuscript/keymaster'
@@ -18,6 +16,8 @@ require 'manuscript/template'
 require 'manuscript/page_template'
 require 'manuscript/layout_template'
 require 'manuscript/design_manager'
+require 'manuscript/settings_manager'
+require 'manuscript/settings'
 require 'manuscript/template_file'
 require 'manuscript/user'
 

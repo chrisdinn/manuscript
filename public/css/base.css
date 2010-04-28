@@ -34,9 +34,9 @@ ol.menu li.current a { font-weight: normal; color: #ED71C9; }
 
 ol#pages small { font-size: 45%;}
 
-ol#pages { list-style: none; font-size: 27px; margin: 30px 0; }
-ol#pages ol { list-style: none; font-size: 27px; margin: 10px 0; }
-ol#pages li, ol#templates li, ol#layouts li { margin: 25px 0; font-weight: bold; }
+ol#pages { list-style: none; font-size: 20px; margin: 15px 0; }
+ol#pages ol { list-style: none; font-size: 20px; margin: 10px 0; }
+ol#pages li, ol#templates li, ol#layouts li { margin: 25px 0; font-weight: 600; }
 
 ol#templates, ol#layouts { list-style: none; font-size: 23px; margin: 30px 0; }
 ol#templates a, ol#layouts a { font-weight: lighter; }
@@ -44,7 +44,8 @@ ol#template_files { list-style: none; padding-left: 0; font-size: 18px; }
 ol#template_files li { padding: 5px 0; }
 
 form label { display:block; padding: 10px 0; }
-form fieldset { border: 0;clear:both;}
+form fieldset { border: 0;clear:both; padding: 0; }
+form fieldset ol { list-style: none; }
 form input[type="text"] { font-size: 20px; width: 600px; border: 1px solid #AAA; padding: 3px; }
 form textarea { font-family: Menlo, Monaco, "andale mono", courier, tahoma, monospace; padding: 5px; font-size: 15px; width: 940px; height: 500px; }
 form input[type="submit"] { float: right; }
@@ -73,7 +74,6 @@ border-bottom: 1px solid rgba(0,0,0,0.25);
 position: relative;
 cursor: pointer;
 }
-5c5dff
 .btn:hover { background-color: #111; color: #fff; }
 .btn:active	{ top: 1px; }
 .small.btn, .small.btn:visited { font-size: 11px; }

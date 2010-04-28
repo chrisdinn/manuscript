@@ -5,13 +5,13 @@
 
 Gem::Specification.new do |s|
   s.name = %q{manuscript}
-  s.version = "0.2.3"
+  s.version = "0.3.1pre"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = ["hotink"]
-  s.date = %q{2010-01-22}
+  s.authors = ["Chris Dinn"]
+  s.date = %q{2010-04-27}
   s.description = %q{A gem for publishing a small Hot Ink authenticated site}
-  s.email = %q{chris@hotink.net}
+  s.email = %q{chrisgdinn@gmail.com}
   s.extra_rdoc_files = [
     "LICENSE",
      "README.rdoc"
@@ -19,6 +19,7 @@ Gem::Specification.new do |s|
   s.files = [
     ".document",
      ".gitignore",
+     "Gemfile",
      "LICENSE",
      "README.rdoc",
      "Rakefile",
@@ -32,6 +33,7 @@ Gem::Specification.new do |s|
      "db/migrate/006_add_parent_to_pages.rb",
      "lib/manuscript.rb",
      "lib/manuscript/base.rb",
+     "lib/manuscript/design_manager.rb",
      "lib/manuscript/keymaster.rb",
      "lib/manuscript/layout_template.rb",
      "lib/manuscript/page.rb",
@@ -39,47 +41,48 @@ Gem::Specification.new do |s|
      "lib/manuscript/page_template.rb",
      "lib/manuscript/template.rb",
      "lib/manuscript/template_file.rb",
-     "lib/manuscript/template_file_manager.rb",
-     "lib/manuscript/template_manager.rb",
      "lib/manuscript/user.rb",
+     "lib/manuscript/views/_page.haml",
+     "lib/manuscript/views/design.haml",
+     "lib/manuscript/views/edit_template_file.haml",
+     "lib/manuscript/views/layout.haml",
+     "lib/manuscript/views/menu.haml",
+     "lib/manuscript/views/new_template_file.haml",
+     "lib/manuscript/views/page.haml",
+     "lib/manuscript/views/pages.haml",
+     "lib/manuscript/views/template.haml",
      "manuscript.gemspec",
      "public/css/base.css",
+     "public/css/wmd.css",
+     "public/images/buttonbg.png",
+     "public/images/wmd-buttons.png",
+     "public/js/wmd.min.js",
      "spec/manuscript/base_spec.rb",
+     "spec/manuscript/design_manager_spec.rb",
      "spec/manuscript/layout_template_spec.rb",
      "spec/manuscript/page_manager_spec.rb",
      "spec/manuscript/page_spec.rb",
      "spec/manuscript/page_template_spec.rb",
-     "spec/manuscript/template_file_manager_spec.rb",
      "spec/manuscript/template_file_spec.rb",
-     "spec/manuscript/template_manager_spec.rb",
      "spec/manuscript/user_spec.rb",
      "spec/spec.opts",
-     "spec/spec_helper.rb",
-     "views/_page.haml",
-     "views/edit_template_file.haml",
-     "views/layout.haml",
-     "views/menu.haml",
-     "views/new_template_file.haml",
-     "views/page.haml",
-     "views/pages.haml",
-     "views/template.haml",
-     "views/template_files.haml",
-     "views/templates.haml"
+     "spec/spec_helper.rb"
   ]
-  s.homepage = %q{http://github.com/hotink/manuscript}
+  s.homepage = %q{http://github.com/chrisdinn/manuscript}
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.3.5}
+  s.rubygems_version = %q{1.3.6}
   s.summary = %q{A gem for publishing a small Hot Ink authenticated site}
   s.test_files = [
     "spec/manuscript/base_spec.rb",
+     "spec/manuscript/design_manager_spec.rb",
      "spec/manuscript/layout_template_spec.rb",
      "spec/manuscript/page_manager_spec.rb",
      "spec/manuscript/page_spec.rb",
      "spec/manuscript/page_template_spec.rb",
-     "spec/manuscript/template_file_manager_spec.rb",
+     "spec/manuscript/settings_manager_spec.rb",
+     "spec/manuscript/settings_spec.rb",
      "spec/manuscript/template_file_spec.rb",
-     "spec/manuscript/template_manager_spec.rb",
      "spec/manuscript/user_spec.rb",
      "spec/spec_helper.rb"
   ]
@@ -89,8 +92,10 @@ Gem::Specification.new do |s|
     s.specification_version = 3
 
     if Gem::Version.new(Gem::RubyGemsVersion) >= Gem::Version.new('1.2.0') then
+      s.add_runtime_dependency(%q<ruby-openid>, [">= 0"])
       s.add_runtime_dependency(%q<activerecord>, [">= 2.3.5"])
       s.add_runtime_dependency(%q<rdiscount>, [">= 1.3.5"])
+      s.add_runtime_dependency(%q<aws-s3>, [">= 0"])
       s.add_runtime_dependency(%q<sinatra>, [">= 0.9.4"])
       s.add_runtime_dependency(%q<haml>, [">= 2.2.12"])
       s.add_runtime_dependency(%q<gatekeeper>, [">= 0.1.1"])
@@ -98,8 +103,10 @@ Gem::Specification.new do |s|
       s.add_runtime_dependency(%q<paperclip>, [">= 2.3.1.1"])
       s.add_development_dependency(%q<rspec>, [">= 1.2.9"])
     else
+      s.add_dependency(%q<ruby-openid>, [">= 0"])
       s.add_dependency(%q<activerecord>, [">= 2.3.5"])
       s.add_dependency(%q<rdiscount>, [">= 1.3.5"])
+      s.add_dependency(%q<aws-s3>, [">= 0"])
       s.add_dependency(%q<sinatra>, [">= 0.9.4"])
       s.add_dependency(%q<haml>, [">= 2.2.12"])
       s.add_dependency(%q<gatekeeper>, [">= 0.1.1"])
@@ -108,8 +115,10 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<rspec>, [">= 1.2.9"])
     end
   else
+    s.add_dependency(%q<ruby-openid>, [">= 0"])
     s.add_dependency(%q<activerecord>, [">= 2.3.5"])
     s.add_dependency(%q<rdiscount>, [">= 1.3.5"])
+    s.add_dependency(%q<aws-s3>, [">= 0"])
     s.add_dependency(%q<sinatra>, [">= 0.9.4"])
     s.add_dependency(%q<haml>, [">= 2.2.12"])
     s.add_dependency(%q<gatekeeper>, [">= 0.1.1"])
