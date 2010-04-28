@@ -6,6 +6,8 @@ require 'gatekeeper/helpers/authentication'
 require 'sinatra/base'
 require 'haml'
 require 'active_record'
+require 'paperclip'
+
 require 'logger'
 
 require 'manuscript/base'
@@ -22,7 +24,7 @@ require 'manuscript/template_file'
 require 'manuscript/user'
 
 
-log = File.new("application.log", "a")
+log = File.new("log/application.log", "a")
 $stderr.reopen(log)
 LOGGER = Logger.new($stderr)
 ActiveRecord::Base.logger = LOGGER

@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{manuscript}
-  s.version = "0.3.1pre"
+  s.version = "0.3.9pre"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Chris Dinn"]
@@ -39,6 +39,8 @@ Gem::Specification.new do |s|
      "lib/manuscript/page.rb",
      "lib/manuscript/page_manager.rb",
      "lib/manuscript/page_template.rb",
+     "lib/manuscript/settings.rb",
+     "lib/manuscript/settings_manager.rb",
      "lib/manuscript/template.rb",
      "lib/manuscript/template_file.rb",
      "lib/manuscript/user.rb",
@@ -50,6 +52,7 @@ Gem::Specification.new do |s|
      "lib/manuscript/views/new_template_file.haml",
      "lib/manuscript/views/page.haml",
      "lib/manuscript/views/pages.haml",
+     "lib/manuscript/views/settings.haml",
      "lib/manuscript/views/template.haml",
      "manuscript.gemspec",
      "public/css/base.css",
